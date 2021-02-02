@@ -9,18 +9,17 @@ func isValid(s string) bool {
     stack := []rune{};
 
     for _, ch := range s {
-        next, ok := p[ch];
-        if ok {
-            stack = append(stack, next)
+        if closed, ok := p[ch]; ok {
+            stack = append(stack, closed)
             continue;
         }
-        n := len(stack) - 1;
-        if n < 0 {
+        last := len(stack) - 1;
+        if last < 0 {
             return false
         }
-        t := stack[n]
-        stack = stack[:n]
-        if ch != t {
+        expected := stack[last]
+        stack = stack[:last]
+        if ch != expected {
             return false
         }
     }
