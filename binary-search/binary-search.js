@@ -6,7 +6,7 @@
 var search = function (nums, target) {
   let startIndex = 0;
   let endIndex = nums.length - 1;
-  while (startIndex <= end) {
+  while (startIndex <= endIndex) {
     const midIndex = Math.floor((startIndex + endIndex) / 2);
     if (nums[midIndex] === target) {
       return mid;
