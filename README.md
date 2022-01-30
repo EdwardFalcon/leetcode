@@ -1,3 +1,3 @@
-- easy - 37
-- medium - 10
+- easy - 41
+- medium - 12
 - hard - 0
