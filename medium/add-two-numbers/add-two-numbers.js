@@ -11,21 +11,18 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  const dummy = new ListNode();
   let carry = 0;
-  let pointer = dummy;
-  while (l1 || l2) {
-    const num1 = l1 ? l1.val : 0;
-    const num2 = l2 ? l2.val : 0;
-    const sum = num1 + num2 + carry;
-    pointer.next = new ListNode(sum % 10);
-    carry = Math.floor(sum / 10);
+  const dummy = new ListNode();
+  let current = dummy;
+  while (l1 || l2 || carry) {
+    const dig1 = l1 ? l1.val : 0;
+    const dig2 = l2 ? l2.val : 0;
+    let sum = dig1 + dig2 + carry;
+    carry = sum >= 10 ? 1 : 0;
     l1 = l1 ? l1.next : null;
     l2 = l2 ? l2.next : null;
-    pointer = pointer.next;
-  }
-  if (carry === 1) {
-    pointer.next = new ListNode(1);
+    current.next = new ListNode(sum % 10);
+    current = current.next;
   }
   return dummy.next;
 };
