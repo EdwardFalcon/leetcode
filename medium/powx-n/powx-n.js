@@ -4,22 +4,19 @@
  * @return {number}
  */
 var myPow = function (x, n) {
-  if (n === 0 || (x < 0 && n < 0)) {
+  if (x === 0) {
+    return 0;
+  }
+  if (n === 0) {
     return 1;
   }
-  if (n < 0) {
-    if (n == Integer.MIN_SAFE_INTEGER) {
-      n = Integer.MAX_SAFE_INTEGER;
-      x = 1 / x;
-    } else {
-      n = -n;
-      x = 1 / x;
-    }
+  if (n === 1) {
+    return x;
   }
-  const j = myPow(x, n / 2);
-  result = j * j;
-  if (n % 2 == 1) {
-    result = result * x;
+  const half = myPow(x, Math.abs(Math.floor(n / 2)));
+  let result = half * half;
+  if (n % 2 !== 0) {
+    result = n < 0 ? result / x : result * x;
   }
-  return result;
+  return n < 0 ? 1 / result : result;
 };
