@@ -1,8 +1,8 @@
-Total: 356
+Total: 408
 
-- easy - 157
-- medium - 148
-- hard - 16
+- easy - 173
+- medium - 180
+- hard - 20
 - sql - 35
 
 Language:
